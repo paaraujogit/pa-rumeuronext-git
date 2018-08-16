@@ -2,6 +2,23 @@
 <html lang="en">
   <head>
     <title>Página HTML - Academia Java</title>
+    <script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
     <style>
        body {
          background-color: white;
@@ -16,7 +33,8 @@
       }
     </script>
   </head>
-  <body>
+  <body  onload="startTime()">
+  <div id="txt"></div>
     <h1>HTML Demo Page - allUpdate</h1>
     <p>Parágrafo 1</p>
     <p>Parágrafo 2</p>
@@ -27,9 +45,11 @@
     <p>Parágrafo 7</p>
     <p>Parágrafo 8</p>
     <p>Parágrafo 9</p>
-    <button type="button" 
+    <button type="button"
       onclick="myHello()">Click
     </button>
     <button type="button" onclick="myHello()">Click</button>
   </body>
-</html> 
+</html>
+
+
